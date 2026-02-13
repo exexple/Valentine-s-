@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love 💕</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Page 1 -->
+    <div class="page active" id="page1">
+        <div class="content">
+            <h1>hey you, the one who changed my life, i love you sooo muchhh. 💕</h1>
+            <p>you're the reason behind my smile and behind my happiness my love, i love you sooo much 💖</p>
+        </div>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="page" id="page2">
+        <div class="content">
+            <h1>hey you, yes you, I'm talking to you my love. 💕</h1>
+            <p>idk where to start, all i wanna say is i love you a lottt. i never thought my life would feel so meaningful my love but look at me now. it's sooo beautiful and warm and colorful. you're the best part of my life my love, you are the reason behind my smile and my happiness and believe me I'll i everything for you and for our love. 💖</p>
+        </div>
+    </div>
+
+    <!-- Page 3 (Audio) -->
+    <div class="page" id="page3">
+        <div class="content">
+            <h1>Listen to this for me, my love 💕</h1>
+            <div class="audio-player">
+                <!-- 🔥 PLACEHOLDER 1: Replace with your audio file name -->
+                <audio id="audio" src="your-love-song.mp3" preload="metadata"></audio>
+                <div class="player-controls">
+                    <button id="playPause">▶️</button>
+                    <div class="progress-container">
+                        <span id="currentTime">0:00</span>
+                        <input type="range" id="progress" min="0" max="100" value="0">
+                        <span id="duration">0:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 4 (Valentine's question) -->
+    <div class="page" id="page4">
+        <div class="content">
+            <h1>happy valentine's day my love. i love you sooo muchhhh 💘</h1>
+            <div id="valentine-question" class="valentine-question hidden">
+                <p>will you be my valentine? 🥺💕</p>
+                <div class="valentine-buttons">
+                    <button id="yesBtn" class="val-btn yes">Yes 💘</button>
+                    <button id="noBtn" class="val-btn no">No 🙃</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 5 (YES page with GIF + confetti) -->
+    <div class="page" id="page5">
+        <div class="content yes-page">
+            <h1>Yayayayyyyyy! 💕</h1>
+            <div class="gif-container">
+                <!-- 🔥 PLACEHOLDER 2: Replace with your GIF/video file name -->
+                <!-- Auto-plays + loops continuously! -->
+                <video src="your-cute-gif.mp4" 
+                       autoplay 
+                       loop 
+                       muted 
+                       playsinline 
+                       class="love-gif">
+                </video>
+            </div>
+            <p>yayayayyyyyy thanks a lotttt meghaaaa hehehe 💖</p>
+            <div class="confetti"></div>
+            <div class="sparks"></div>
+        </div>
+    </div>
+
+    <nav class="navigation">
+        <button id="prevBtn" class="nav-btn">← Previous</button>
+        <button id="nextBtn" class="nav-btn">Next →</button>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>

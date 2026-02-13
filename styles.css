@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Dancing Script', cursive;
+    background: linear-gradient(135deg, #ffc0cb 0%, #e6e6fa 50%, #ffb6c1 100%);
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><filter id="glow"><feGaussianBlur stdDeviation="2.5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle cx="20" cy="20" r="2" fill="pink" opacity="0.3" filter="url(%23glow)"/><circle cx="80" cy="30" r="1.5" fill="lavender" opacity="0.4" filter="url(%23glow)"/><circle cx="40" cy="70" r="2" fill="pink" opacity="0.2" filter="url(%23glow)"/></svg>') repeat;
+    animation: float 20s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    padding: 20px;
+}
+
+.page.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.content {
+    text-align: center;
+    max-width: 800px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    color: #ff69b4;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(255,105,180,0.5);
+}
+
+p {
+    font-size: 1.5rem;
+    color: #663399;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Audio player */
+.audio-player {
+    margin-top: 30px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+#playPause {
+    background: linear-gradient(45deg, #ff69b4, #e6e6fa);
+    border: none;
+    border-radius: 50px;
+    width: 60px;
+    height: 60px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(255,105,180,0.4);
+    transition: all 0.3s ease;
+}
+
+#playPause:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(255,105,180,0.6);
+}
+
+.progress-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: #663399;
+}
+
+#progress {
+    flex: 1;
+    height: 6px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Navigation */
+.navigation {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.nav-btn {
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ff69b4, #e6e6fa);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(255,105,180,0.4);
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(255,105,180,0.6);
+    opacity: 1;
+}
+
+#prevBtn { display: none; }
+
+/* Valentine's question */
+.valentine-question {
+    margin-top: 30px;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.valentine-question.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.valentine-question p {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+}
+
+.valentine-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+
+.val-btn {
+    padding: 12px 25px;
+    border-radius: 40px;
+    border: none;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+    position: relative;
+}
+
+.val-btn.yes {
+    background: linear-gradient(45deg, #ff69b4, #ffd1ff);
+    color: white;
+}
+
+.val-btn.no {
+    background: linear-gradient(45deg, #ccccff, #ffb6c1);
+    color: #663399;
+}
+
+/* YES page */
+.yes-page h1 {
+    font-size: 2.8rem;
+}
+
+.gif-container {
+    margin: 20px 0;
+}
+
+.love-gif {
+    max-width: 100%;
+    max-height: 250px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* Confetti & sparks */
+.confetti, .sparks {
+    position: fixed;
+    pointer-events: none;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Simple shooting sparkles */
+.sparks::before, .sparks::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 120px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.8), transparent);
+    left: 20%;
+    top: -10%;
+    border-radius: 50px;
+    animation: sparkle 1.5s linear infinite;
+}
+
+.sparks::after {
+    left: 70%;
+    animation-delay: 0.5s;
+}
+
+@keyframes sparkle {
+    0% { transform: translateY(0) scaleY(1); opacity: 1; }
+    100% { transform: translateY(120vh) scaleY(0.5); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    p { font-size: 1.2rem; }
+    .content { padding: 20px; margin: 20px; }
+    .valentine-buttons { flex-direction: column; }
+}
